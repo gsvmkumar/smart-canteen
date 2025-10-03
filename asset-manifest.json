@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/smart-canteen/static/css/main.28891ac8.css",
-    "main.js": "/smart-canteen/static/js/main.c95289ce.js",
+    "main.js": "/smart-canteen/static/js/main.d4465c84.js",
     "index.html": "/smart-canteen/index.html",
     "main.28891ac8.css.map": "/smart-canteen/static/css/main.28891ac8.css.map",
-    "main.c95289ce.js.map": "/smart-canteen/static/js/main.c95289ce.js.map"
+    "main.d4465c84.js.map": "/smart-canteen/static/js/main.d4465c84.js.map"
   },
   "entrypoints": [
     "static/css/main.28891ac8.css",
-    "static/js/main.c95289ce.js"
+    "static/js/main.d4465c84.js"
   ]
 }
