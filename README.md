@@ -1,49 +1,191 @@
-# Getting Started with Create React App
+# 🍽️ Smart Canteen - Modern Food Ordering System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A professional React-based food ordering application for canteens with user authentication, combo offers, and a clean modern interface.
 
-## Available Scripts
+![Smart Canteen](https://img.shields.io/badge/React-19.1.1-blue) ![Status](https://img.shields.io/badge/Status-Production%20Ready-green) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+### 🔐 **Authentication System**
+- Professional login page with User/Admin toggle
+- Animated sliding toggle with smooth transitions
+- LocalStorage-based session management
+- Protected routes and automatic redirects
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🍕 **Multi-Shop Food Ordering**
+- **Juice Corner** - Fresh fruit juices and healthy drinks
+- **Biriyani Point** - Vegetarian and non-vegetarian biriyani varieties
+- **Tiffen Center** - South Indian breakfast and traditional foods
+- **Tea Time** - Hot beverages and coffee varieties
+- **Bakery** - Snacks, drinks, and desserts with category filtering
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🎉 **Combo Offers System**
+- Attractive combo deals from multiple shops
+- Significant savings on combo purchases
+- Popular offers highlighting
+- Cross-shop meal combinations
 
-### `npm test`
+### 👤 **User Management**
+- Editable user profiles with persistent data
+- Favorites system with star-based selection
+- Shopping cart with real-time updates
+- Order history and user preferences
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🎨 **Professional Design**
+- Modern orange and white color scheme
+- Responsive design for all devices
+- Smooth animations and hover effects
+- Professional card-based layouts
 
-### `npm run build`
+## 🚀 Quick Start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn package manager
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/smart-canteen.git
+   cd smart-canteen
+   ```
 
-### `npm run eject`
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🏗️ Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+smart-canteen/
+├── public/
+│   ├── assets/           # Shop images and icons
+│   └── index.html
+├── src/
+│   ├── components/       # Reusable UI components
+│   │   ├── Header.jsx    # Navigation header
+│   │   ├── ItemCard.jsx  # Food item cards
+│   │   └── ...
+│   ├── context/         # React context providers
+│   │   ├── AuthContext.js      # Authentication state
+│   │   ├── CartContext.jsx     # Shopping cart state
+│   │   └── FavoritesContext.js # Favorites management
+│   ├── data/            # Static data files
+│   │   ├── comboOffers.js     # Combo deals data
+│   │   ├── juiceItems.js      # Juice menu items
+│   │   └── ...
+│   ├── pages/           # Main page components
+│   │   ├── Login.jsx     # Authentication page
+│   │   ├── Home.jsx      # Shop selection homepage
+│   │   ├── Offers.jsx    # Combo offers page
+│   │   └── ...
+│   └── utils/           # Utility functions
+│       └── auth.js      # Authentication helpers
+```
 
-## Learn More
+## 🔧 Available Scripts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **`npm start`** - Runs the app in development mode
+- **`npm test`** - Launches the test runner
+- **`npm run build`** - Builds the app for production
+- **`npm run eject`** - Ejects from Create React App
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎯 Usage
+
+### For Users
+1. **Login** with any username (User option)
+2. **Browse shops** from the homepage
+3. **Add items** to cart or favorites
+4. **View combo offers** for savings
+5. **Manage profile** and preferences
+
+### For Developers
+1. **Modify shop data** in `/src/data/` files
+2. **Add new shops** by creating new data files and pages
+3. **Customize styling** in component CSS files
+4. **Extend authentication** by modifying AuthContext
+
+## 🛠️ Technology Stack
+
+- **Frontend**: React 19.1.1
+- **Routing**: React Router DOM 7.9.3
+- **State Management**: React Context API
+- **Styling**: Pure CSS with modern features
+- **Storage**: LocalStorage for persistence
+- **Build Tool**: Create React App
+
+## 🎨 Design Features
+
+- **Responsive Layout** - Works on mobile, tablet, and desktop
+- **Modern Animations** - Smooth transitions and hover effects
+- **Professional Theme** - Orange (#ff6b35) and white color scheme
+- **Accessibility** - Clean, readable interface design
+
+## 📱 Mobile Responsive
+
+The application is fully responsive and provides an excellent user experience across:
+- Mobile phones (320px+)
+- Tablets (768px+)
+- Desktop computers (1024px+)
+
+## 🔒 Security Features
+
+- Client-side authentication with session management
+- Protected routes for authenticated users only
+- Input validation and error handling
+- Secure data storage practices
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+npm run build
+```
+
+### Deploy Options
+- **GitHub Pages**: Static hosting for React apps
+- **Netlify**: Automatic deployments with Git integration
+- **Vercel**: Zero-configuration deployment
+- **Firebase Hosting**: Google's hosting solution
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Manikumar**
+- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: manikumar@example.com
+
+## 🙏 Acknowledgments
+
+- React team for the amazing framework
+- Create React App for the boilerplate
+- Unsplash for beautiful placeholder images
+- All contributors who helped make this project better
+
+---
+
+⭐ **Star this repository if you found it helpful!**
 
 ### Code Splitting
 
