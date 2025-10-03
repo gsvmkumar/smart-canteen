@@ -1,0 +1,247 @@
+/* Help Modal Styles */
+.help-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.help-modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.help-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px 16px;
+  border-bottom: 2px solid #f0f2f5;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.help-modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.help-modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.help-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.help-modal-body {
+  padding: 28px;
+}
+
+.help-intro {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 24px;
+  text-align: center;
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.help-steps {
+  margin-bottom: 28px;
+}
+
+.help-step {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.help-step:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.step-number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.step-icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.step-num {
+  background: #667eea;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.step-content h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.step-content p {
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.help-tips {
+  background: #fff3cd;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+  margin-bottom: 24px;
+}
+
+.help-tips h3 {
+  margin: 0 0 12px 0;
+  color: #856404;
+  font-size: 18px;
+}
+
+.help-tips ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #856404;
+}
+
+.help-tips li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.help-contact {
+  background: #d1ecf1;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #17a2b8;
+  text-align: center;
+}
+
+.help-contact h3 {
+  margin: 0 0 8px 0;
+  color: #0c5460;
+  font-size: 18px;
+}
+
+.help-contact p {
+  margin: 0;
+  color: #0c5460;
+}
+
+.help-modal-footer {
+  padding: 20px 28px;
+  border-top: 1px solid #e9ecef;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 0 0 12px 12px;
+}
+
+.help-close-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.help-close-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .help-modal-content {
+    margin: 10px;
+    max-height: 95vh;
+  }
+  
+  .help-modal-header {
+    padding: 20px 20px 12px;
+  }
+  
+  .help-modal-header h2 {
+    font-size: 20px;
+  }
+  
+  .help-modal-body {
+    padding: 20px;
+  }
+  
+  .help-step {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .step-number {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+}
