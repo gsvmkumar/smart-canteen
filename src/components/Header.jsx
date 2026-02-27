@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext.jsx'
 import { useFavorites } from '../context/FavoritesContext.js'
 import { useAuth } from '../context/AuthContext.js'
+import { useResponsive } from '../hooks/useResponsive.js'
 import HelpModal from './HelpModal.jsx'
 import './components.css'
 
@@ -13,6 +14,7 @@ function Header() {
   const { cart, totalItems } = useCart()
   const { totalFavorites } = useFavorites()
   const { username, logout } = useAuth()
+  const { isMobile } = useResponsive()
   const profileRef = useRef(null)
   const navigate = useNavigate()
 
@@ -77,27 +79,31 @@ function Header() {
 
         {/* Navigation Items */}
         <div className="navbar__actions">
-          {/* Offers */}
-          <Link to="/offers" className="navbar__item">
-            <svg className="navbar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-              <path d="M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path>
-              <polyline points="9,9 9,15"></polyline>
-              <polyline points="15,9 15,15"></polyline>
-            </svg>
-            <span>Offers</span>
-            <span className="navbar__badge new">NEW</span>
-          </Link>
+          {/* Offers - Hide on mobile */}
+          {!isMobile && (
+            <Link to="/offers" className="navbar__item">
+              <svg className="navbar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path>
+                <polyline points="9,9 9,15"></polyline>
+                <polyline points="15,9 15,15"></polyline>
+              </svg>
+              <span>Offers</span>
+              <span className="navbar__badge new">NEW</span>
+            </Link>
+          )}
 
-          {/* Help */}
-          <button className="navbar__item" onClick={() => setHelpOpen(true)}>
-            <svg className="navbar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-              <point x="12" y="17"></point>
-            </svg>
-            <span>Help</span>
-          </button>
+          {/* Help - Hide on mobile */}
+          {!isMobile && (
+            <button className="navbar__item" onClick={() => setHelpOpen(true)}>
+              <svg className="navbar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <point x="12" y="17"></point>
+              </svg>
+              <span>Help</span>
+            </button>
+          )}
 
           {/* Profile */}
           <div className="navbar__profile" ref={profileRef}>
@@ -157,6 +163,52 @@ function Header() {
                       <small>Save your favorite items</small>
                     </div>
                   </Link>
+
+                  {/* Mobile-only items: Cart, Offers, Help */}
+                  {isMobile && (
+                    <>
+                      <Link to="/cart" className="dropdown__item" onClick={() => setProfileOpen(false)}>
+                        <svg className="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <circle cx="9" cy="21" r="1"></circle>
+                          <circle cx="20" cy="21" r="1"></circle>
+                          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <div>
+                          <span>Cart</span>
+                          <small>{cartItemsCount > 0 ? `${cartItemsCount} items` : 'No items'}</small>
+                        </div>
+                        {cartItemsCount > 0 && (
+                          <span className="navbar__badge count" style={{marginLeft: 'auto'}}>{cartItemsCount}</span>
+                        )}
+                      </Link>
+
+                      <Link to="/offers" className="dropdown__item" onClick={() => setProfileOpen(false)}>
+                        <svg className="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                          <path d="M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path>
+                          <polyline points="9,9 9,15"></polyline>
+                          <polyline points="15,9 15,15"></polyline>
+                        </svg>
+                        <div>
+                          <span>Offers</span>
+                          <small>Special deals & combos</small>
+                        </div>
+                        <span className="navbar__badge new" style={{marginLeft: 'auto'}}>NEW</span>
+                      </Link>
+
+                      <button className="dropdown__item" onClick={() => { setHelpOpen(true); setProfileOpen(false); }}>
+                        <svg className="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                          <point x="12" y="17"></point>
+                        </svg>
+                        <div>
+                          <span>Help</span>
+                          <small>Get support & assistance</small>
+                        </div>
+                      </button>
+                    </>
+                  )}
                 </div>
 
                 <div className="dropdown__section">
@@ -176,18 +228,20 @@ function Header() {
             )}
           </div>
 
-          {/* Cart */}
-          <Link to="/cart" className="navbar__item navbar__cart">
-            <svg className="navbar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <circle cx="9" cy="21" r="1"></circle>
-              <circle cx="20" cy="21" r="1"></circle>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-            </svg>
-            <span>Cart</span>
-            {cartItemsCount > 0 && (
-              <span className="navbar__badge count">{cartItemsCount}</span>
-            )}
-          </Link>
+          {/* Cart - Hide on mobile */}
+          {!isMobile && (
+            <Link to="/cart" className="navbar__item navbar__cart">
+              <svg className="navbar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span>Cart</span>
+              {cartItemsCount > 0 && (
+                <span className="navbar__badge count">{cartItemsCount}</span>
+              )}
+            </Link>
+          )}
         </div>
       </div>
       

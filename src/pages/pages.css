@@ -7,9 +7,19 @@
 
 .shops-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
   margin-top: 20px;
+}
+
+/* Desktop view - Grid layout */
+.shops-grid.desktop-view {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Mobile view - Single column */
+.shops-grid.mobile-view {
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .items-grid {
@@ -17,4 +27,22 @@
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
   margin-top: 20px;
+}
+
+/* Mobile responsiveness for items grid */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  
+  /* Make shop boxes full width on mobile */
+  .shops-grid.mobile-view .shop-box {
+    width: 100%;
+    max-width: none;
+  }
 }

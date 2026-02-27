@@ -1,4 +1,6 @@
 // Combo offers data for different shops
+const asset = (file) => `${process.env.PUBLIC_URL}/assets/${file}`
+
 const comboOffers = [
   // Juice Corner Combos
   {
@@ -11,7 +13,7 @@ const comboOffers = [
     originalPrice: 175, // 60 + 50 + 65
     offerPrice: 140,
     discount: 20,
-    img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
+    img: asset('Juices/mixed_juice.webp'),
     validUntil: '2025-12-31',
     popular: true
   },
@@ -25,7 +27,7 @@ const comboOffers = [
     originalPrice: 205, // 70 + 55 + 80
     offerPrice: 160,
     discount: 22,
-    img: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=300&fit=crop',
+    img: asset('Juices/pineapple-juice.webp'),
     validUntil: '2025-12-31',
     popular: false
   },
@@ -39,7 +41,7 @@ const comboOffers = [
     originalPrice: 150, // 50 + 60 + 40
     offerPrice: 110,
     discount: 27,
-    img: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop',
+    img: asset('Juices/carrot_juice.webp'),
     validUntil: '2025-12-31',
     popular: false
   },
@@ -55,7 +57,7 @@ const comboOffers = [
     originalPrice: 210, // 120 + 90
     offerPrice: 170,
     discount: 19,
-    img: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=400&h=300&fit=crop',
+    img: asset('Biriyani/PaneerBiriyani.webp'),
     validUntil: '2025-12-31',
     popular: true
   },
@@ -69,7 +71,7 @@ const comboOffers = [
     originalPrice: 270, // 150 + 120
     offerPrice: 210,
     discount: 22,
-    img: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=400&h=300&fit=crop',
+    img: asset('Biriyani/ChickenBiriyani.webp'),
     validUntil: '2025-12-31',
     popular: true
   },
@@ -83,7 +85,7 @@ const comboOffers = [
     originalPrice: 290, // 190 + 100
     offerPrice: 230,
     discount: 21,
-    img: 'https://images.unsplash.com/photo-1520637836862-4d197d17c533?w=400&h=300&fit=crop',
+    img: asset('Biriyani/MuttonBiriyani.webp'),
     validUntil: '2025-12-31',
     popular: false
   },
@@ -97,7 +99,7 @@ const comboOffers = [
     originalPrice: 350,
     offerPrice: 280,
     discount: 20,
-    img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
+    img: asset('Biriyani/vegBiriyani.webp'),
     validUntil: '2025-12-31',
     popular: true
   },
@@ -113,7 +115,7 @@ const comboOffers = [
     originalPrice: 220,
     offerPrice: 180,
     discount: 18,
-    img: 'https://images.unsplash.com/photo-1502780402662-acc01917074e?w=400&h=300&fit=crop',
+    img: asset('Bakery/ChocolateCake.webp'),
     validUntil: '2025-12-31',
     popular: true
   }

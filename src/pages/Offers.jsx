@@ -9,7 +9,7 @@ function Offers() {
   const { addToCart } = useCart()
 
   const handleAddComboToCart = (combo) => {
-    // Add combo as a special item to cart
+    // Add combo as a special item to cart with "Combo Offers" as shop name
     const comboItem = {
       name: combo.title,
       price: combo.offerPrice,
@@ -21,7 +21,8 @@ function Offers() {
       discount: combo.discount
     }
     
-    addToCart(comboItem)
+    // Use "Combo Offers" as the shop name for combo items
+    addToCart("Combo Offers", comboItem)
   }
 
   const handleShopRedirect = (shopRoute) => {

@@ -1,6 +1,5 @@
 {
-  "homepage": "https://gsmkumar.github.io/smart-canteen",
-
+  "homepage": "https://gsvmkumar.github.io/smart-canteen",
   "name": "smart-canteen",
   "version": "0.1.0",
   "private": true,
@@ -44,6 +43,4 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   }
-  
 }
-

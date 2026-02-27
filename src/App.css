@@ -123,3 +123,61 @@ body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI
 .cart-line__price { font-weight: 700; color: var(--text); }
 .cart-total { text-align: right; margin-top: 8px; font-weight: 800; color: var(--text); }
 
+/* Mobile-specific styles for shop boxes */
+.shop-box.mobile {
+  flex-direction: row;
+  padding: 20px;
+  align-items: center;
+  text-align: left;
+}
+
+.shop-box.mobile .shop-box__image {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0;
+  margin-right: 16px;
+  border-width: 2px;
+}
+
+.shop-box.mobile .shop-box__title {
+  font-size: 18px;
+  text-align: left;
+  flex: 1;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .navbar__container {
+    padding: 0 16px;
+  }
+  
+  .navbar__search {
+    flex: 1;
+    max-width: none;
+    margin: 0 16px;
+  }
+  
+  .search-field {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .navbar__actions {
+    gap: 8px;
+  }
+  
+  .navbar__item span {
+    display: none; /* Hide text labels on mobile */
+  }
+  
+  .navbar__dropdown {
+    right: 0;
+    left: auto;
+    width: 280px;
+    max-width: calc(100vw - 32px);
+  }
+}
+
