@@ -76,7 +76,7 @@
   z-index: 1;
 }
 
-.login-options[data-active="admin"]::before {
+.login-options[data-active="shopkeeper"]::before {
   transform: translateX(100%);
 }
 
@@ -110,7 +110,7 @@
 
 /* Add a subtle glow effect when active */
 .login-options[data-active="user"]::before,
-.login-options[data-active="admin"]::before {
+.login-options[data-active="shopkeeper"]::before {
   animation: subtleGlow 2s ease-in-out infinite alternate;
 }
 

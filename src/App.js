@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext.js";
 import { CartProvider } from "./context/CartContext.jsx";
 import { FavoritesProvider } from "./context/FavoritesContext.js";
+import { CanteenDataProvider } from "./context/CanteenDataContext.jsx";
 import Header from "./components/Header.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Login from "./pages/Login.jsx";
@@ -16,9 +17,11 @@ import CartPage from "./pages/CartPage.jsx";
 import Profile from "./pages/Profile.jsx";
 import Favorites from "./pages/Favorites.jsx";
 import Offers from "./pages/Offers.jsx";
+import Orders from "./pages/Orders.jsx";
+import ShopkeeperDashboard from "./pages/ShopkeeperDashboard.jsx";
 
 function AppContent() {
-  const { isAuthenticated, loading } = useAuth();
+  const { isAuthenticated, isShopkeeper, loading } = useAuth();
 
   if (loading) {
     return (
@@ -42,14 +45,14 @@ function AppContent() {
   return (
     <FavoritesProvider>
       <CartProvider>
-        {isAuthenticated && <Header />}
+        {isAuthenticated && !isShopkeeper && <Header />}
         <Routes>
           <Route path="/login" element={
-            isAuthenticated ? <Navigate to="/" replace /> : <Login />
+            isAuthenticated ? <Navigate to={isShopkeeper ? "/shopkeeper" : "/"} replace /> : <Login />
           } />
           <Route path="/" element={
             <ProtectedRoute>
-              <Home />
+              {isShopkeeper ? <Navigate to="/shopkeeper" replace /> : <Home />}
             </ProtectedRoute>
           } />
           <Route path="/shop/juice-corner" element={
@@ -97,6 +100,17 @@ function AppContent() {
               <Offers />
             </ProtectedRoute>
           } />
+          <Route path="/orders" element={
+            <ProtectedRoute>
+              <Orders />
+            </ProtectedRoute>
+          } />
+          <Route path="/shopkeeper" element={
+            <ProtectedRoute shopkeeperOnly>
+              <ShopkeeperDashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="*" element={<Navigate to={isAuthenticated ? (isShopkeeper ? "/shopkeeper" : "/") : "/login"} replace />} />
         </Routes>
       </CartProvider>
     </FavoritesProvider>
@@ -106,7 +120,9 @@ function AppContent() {
 function App() {
   return (
     <AuthProvider>
-      <AppContent />
+      <CanteenDataProvider>
+        <AppContent />
+      </CanteenDataProvider>
     </AuthProvider>
   );
 }

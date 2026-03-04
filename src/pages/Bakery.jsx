@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ItemCard from "../components/ItemCard";
 import { useCart } from "../context/CartContext";
-import bakeryItems from "../data/bakeryItems";
+import { useCanteenData } from "../context/CanteenDataContext";
 
 export default function Bakery() {
   const navigate = useNavigate();
   const { cart, addToCart, removeFromCart } = useCart();
-  const [selectedCategory, setSelectedCategory] = useState("Drinks");
-
-  const categories = ["Drinks", "Snacks", "Desserts"];
+  const { getMenuItems } = useCanteenData();
+  const items = getMenuItems("Bakery");
+  const categories = [...new Set(items.map((item) => item.category || "General"))];
+  const [selectedCategory, setSelectedCategory] = useState(categories[0] || "General");
   const shopName = "Bakery";
 
   const qtyInCart = (itemName) => cart[shopName]?.items?.[itemName]?.qty || 0;
 
-  const filteredItems = bakeryItems.filter(item => item.category === selectedCategory);
+  const filteredItems = items.filter(item => (item.category || "General") === selectedCategory);
 
   return (
     <div style={{ 

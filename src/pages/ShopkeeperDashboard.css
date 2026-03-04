@@ -1,0 +1,165 @@
+.shopkeeper-wrap {
+  min-height: 100vh;
+  background: #f4f6fb;
+  padding: 20px;
+}
+
+.shopkeeper-header {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.shopkeeper-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.shopkeeper-header p {
+  margin: 6px 0 0;
+  color: #64748b;
+}
+
+.shopkeeper-header button {
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.shopkeeper-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.shopkeeper-tabs button {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.shopkeeper-tabs button.active {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #fff;
+}
+
+.shopkeeper-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+}
+
+.shopkeeper-grid article {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.shopkeeper-grid h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #475569;
+}
+
+.shopkeeper-grid p {
+  margin: 8px 0 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.shopkeeper-panel {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.shopkeeper-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.shopkeeper-form input,
+.shopkeeper-form select,
+.shopkeeper-item input,
+.shopkeeper-order select {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.shopkeeper-form button {
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 12px;
+}
+
+.shopkeeper-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.shopkeeper-item,
+.shopkeeper-order,
+.shop-row {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.shopkeeper-item {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 100px 130px 110px 90px;
+}
+
+.shopkeeper-order p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.shopkeeper-item label,
+.shopkeeper-form label,
+.shop-row label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.danger {
+  border: none;
+  background: #dc2626;
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .shopkeeper-item {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,11 +1,12 @@
 import React from 'react'
 import ShopBox from '../components/ShopBox.jsx'
-import { shops } from '../data/shops.js'
 import { useResponsive } from '../hooks/useResponsive.js'
+import { useCanteenData } from '../context/CanteenDataContext.jsx'
 import './pages.css'
 
 function Home() {
   const { isMobile } = useResponsive()
+  const { shops } = useCanteenData()
   
   return (
     <div className="container">

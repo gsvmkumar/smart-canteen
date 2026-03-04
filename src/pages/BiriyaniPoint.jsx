@@ -1,14 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import biriyaniItems from "../data/biriyaniItems";
 import ShopTemplate from "./ShopTemplate";
+import { useCanteenData } from "../context/CanteenDataContext";
 
 export default function BiriyaniPoint() {
   const navigate = useNavigate();
+  const { getMenuItems } = useCanteenData();
   return (
     <ShopTemplate 
       shopName="Biriyani Point" 
-      items={biriyaniItems} 
+      items={getMenuItems("Biriyani Point")} 
       onBack={() => navigate("/")} 
     />
   );

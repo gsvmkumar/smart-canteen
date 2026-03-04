@@ -1,10 +1,35 @@
 // src/pages/CartPage.jsx
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
+import { useCanteenData } from "../context/CanteenDataContext";
 
 export default function CartPage() {
   const { cart, addToCart, removeFromCart, clearShop, grandTotal } = useCart();
+  const { username } = useAuth();
+  const { createOrder } = useCanteenData();
   const [editingShop, setEditingShop] = useState(null);
+
+  const handlePayShop = (shopName, shopData) => {
+    const items = Object.entries(shopData.items).map(([name, value]) => ({
+      name,
+      qty: value.qty,
+      price: value.price,
+    }));
+
+    createOrder({
+      shopName,
+      customer: username || "Guest",
+      total: shopData.shopTotal,
+      items,
+    });
+
+    clearShop(shopName);
+    if (editingShop === shopName) {
+      setEditingShop(null);
+    }
+    alert(`Order placed successfully for ${shopName}.`);
+  };
 
   if (!Object.keys(cart).length) return <div style={{ padding: 20 }}><h2>Cart is empty</h2></div>;
 
@@ -40,7 +65,7 @@ export default function CartPage() {
                 {editingShop === shopName ? "Close Edit" : "Edit"}
               </button>
               <button 
-                onClick={() => alert(`Paying ₹${shopData.shopTotal} for ${shopName}`)} 
+                onClick={() => handlePayShop(shopName, shopData)} 
                 style={{
                   backgroundColor: '#28a745',
                   color: 'white',

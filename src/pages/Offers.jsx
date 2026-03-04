@@ -1,12 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext.jsx'
-import comboOffers from '../data/comboOffers.js'
+import { useCanteenData } from '../context/CanteenDataContext.jsx'
 import './Offers.css'
 
 function Offers() {
   const navigate = useNavigate()
   const { addToCart } = useCart()
+  const { offers: comboOffers } = useCanteenData()
 
   const handleAddComboToCart = (combo) => {
     // Add combo as a special item to cart with "Combo Offers" as shop name

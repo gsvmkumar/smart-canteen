@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import shopkeeperCredentials from '../data/shopkeeperCredentials';
 import './Login.css';
 
 function Login() {
@@ -16,15 +17,29 @@ function Login() {
     e.preventDefault();
     setError('');
     
-    if (userType === 'admin') {
-      setError('Admin login is currently disabled. Please select User option.');
+    if (userType === 'shopkeeper') {
+      const credential = shopkeeperCredentials.find(
+        (item) => item.username === username.trim() && item.password === password
+      );
+      if (!credential) {
+        setError('Invalid shopkeeper credentials. Please check username and password.');
+        return;
+      }
+
+      setLoading(true);
+      login(username.trim(), 'shopkeeper', credential.shopId);
+
+      setTimeout(() => {
+        navigate('/shopkeeper');
+        setLoading(false);
+      }, 500);
       return;
     }
     
     if (username.trim()) {
       setLoading(true);
       // Use the auth context login method
-      login(username.trim());
+      login(username.trim(), 'user');
       
       // Navigate to homepage
       setTimeout(() => {
@@ -58,13 +73,13 @@ function Login() {
             </button>
             <button 
               type="button" 
-              className={`option-btn ${userType === 'admin' ? 'active' : ''}`}
+              className={`option-btn ${userType === 'shopkeeper' ? 'active' : ''}`}
               onClick={() => {
-                setUserType('admin');
+                setUserType('shopkeeper');
                 setError(''); // Clear any previous error
               }}
             >
-              Admin
+              Shopkeeper
             </button>
           </div>
           

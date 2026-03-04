@@ -1,14 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import tiffenItems from "../data/tiffenItems";
 import ShopTemplate from "./ShopTemplate";
+import { useCanteenData } from "../context/CanteenDataContext";
 
 export default function TiffenCenter() {
   const navigate = useNavigate();
+  const { getMenuItems } = useCanteenData();
   return (
     <ShopTemplate 
       shopName="Tiffen Center" 
-      items={tiffenItems} 
+      items={getMenuItems("Tiffen Center")} 
       onBack={() => navigate("/")} 
     />
   );

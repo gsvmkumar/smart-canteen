@@ -2,11 +2,15 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-function ProtectedRoute({ children }) {
-  const { isAuthenticated } = useAuth();
+function ProtectedRoute({ children, shopkeeperOnly = false }) {
+  const { isAuthenticated, isShopkeeper } = useAuth();
   
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
+  }
+
+  if (shopkeeperOnly && !isShopkeeper) {
+    return <Navigate to="/" replace />;
   }
   
   return children;
